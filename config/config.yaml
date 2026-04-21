@@ -1,0 +1,27 @@
+project:
+  name: customer-segmentation
+  version: 1.0
+  description: E-commerce customer segmentation using K-Means
+
+data:
+  raw_path: dbfs:/FileStore/tables/customer_data/
+  raw_file: ecommerce_customer_churn_dataset.csv
+  bronze_table: bronze_customer_data
+  silver_table: silver_customer_data
+  gold_table: gold_customer_data
+  clustered_table: clustered_customers
+
+clustering:
+  algorithm: kmeans
+  max_k: 10
+  optimal_k: 4
+  max_iterations: 20
+  seed: 42
+
+features:
+  numeric:
+    - Age
+    - Membership_Years
+    - Login_Frequency
+    - Total_Purchases
+    - Lifetime_Value
